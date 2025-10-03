@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaveis</title>
+</head>
+<body>
+    <h1>Variaveis</h1>
+    <script>
+        // Variaveis com "var"
+
+        console.log("=== VAR ===");
+        var nome = "jao"
+        console.log("Nome inicial:", nome);
+
+        var nome = "Maria";
+        console.log("Nome declarado", nome);
+        
+        nome = "Pedro";
+        console.log("Nome reatribuido:", nome);
+
+        // Exemplo de escopo com var
+        function testeVar(){
+            var idade = 30;
+            if (true){
+                var idade = 40; // mesmo escopo (função), valor é sobrescrito
+                console.log("Idade dentro do if:", idade); //40
+            }
+            console.log("Idade fora do if:", idade);
+        }
+        testeVar();
+
+        // Variaveis com "let"
+
+        console.log("\n=== LET ===");
+        let cidade = "São Paulo";
+        console.log("Cidade inicial:", cidade);
+
+        console.log("\n=== LET ===");
+        cidade = "Rio de Janeiro";
+        console.log("Cidade alterada:", cidade);
+
+        // Escopo de bloco
+        function testeLet(){
+            let valor = 100;
+            if (true){
+                let valor = 200;
+                console.log("Valor dentro do if:", valor);
+            }
+            console.log("Valor fora do if:",valor);
+        }
+        testeLet();
+
+        // Variaveis com "const"
+
+        console.log("\n=== CONST ===");
+        const pi = 3.14159;
+
+        console.log("valor de pi:", pi);
+
+        const usuario = {
+            nome: "Ana",
+            idade: 25
+        };
+
+        usuario.idade = 26;
+        console.log("Usuário:", usuario);
+
+        const lista = [1,2,3];
+        lista.push(4);
+
+        // COmparando os tipos
+        console.log("\n=== comparando var, let e const ===");
+
+        var x = 10;
+        var x = 20;
+        console.log("Var x:",x);
+
+        let y = 10;
+        y = 30;
+        console.log("lety:",y);
+
+        const z = 50;
+        console.log("const z:",z);
+
+
+    </script>
+
+    
+</body>
+</html>

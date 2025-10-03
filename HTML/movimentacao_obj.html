@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movimentando Objetos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: #e0ffe0;
+      padding-top: 20px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 2em;
+      margin-bottom: 5px;
+      background: linear-gradient(to right, #00c853, #64dd17);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    #layout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    #gameContainer {
+      position: relative;
+      width: fit-content;
+      border: 4px solid #64dd17;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00e676;
+    }
+
+    canvas {
+      display: block;
+      background-color: #f5f5f5;
+    }
+
+    #objetoNaoIdentificado {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background-image: url(/HTML/imagens/sonic-devil.gif);
+      background-size: cover;
+      filter: drop-shadow(0 0 8px white);
+      top: 0;
+      left: 0;
+      transition: top 0.1s, left 0.1s;
+    }
+
+    #objetoNaoIdentificado.bump {
+      animation: shake 0.3s;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(-4px, 0);
+      }
+
+      50% {
+        transform: translate(4px, 0);
+      }
+
+      75% {
+        transform: translate(-4px, 0);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .victory {
+      animation: victoryFlash 0.5s infinite;
+    }
+
+    @keyframes victoryFlash {
+      0% {
+        filter: drop-shadow(0 0 5px lime);
+      }
+
+      50% {
+        filter: drop-shadow(0 0 20px white);
+      }
+
+      100% {
+        filter: drop-shadow(0 0 5px lime);
+      }
+    }
+
+    #infoLateral {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 700px;
+    }
+
+    #timer {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      color: #c8ffc8;
+    }
+
+    #ranking {
+      font-size: 1em;
+      background-color: #003300;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00e676;
+      margin-bottom: 20px;
+    }
+
+    #reiniciar {
+      background-color: #00c853;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background 0.3s;
+    }
+
+    #reiniciar:hover {
+      background-color: #00e676;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Movimentando Objetos</h1>
+
+  <div id="layout">
+    <div id="gameContainer">
+      <span id="objetoNaoIdentificado"></span>
+      <canvas width="700" height="700"></canvas>
+    </div>
+
+    <div id="infoLateral">
+      <div id="timer">⏱️ Tempo: <span id="contador">0</span> segundos</div>
+      <div id="ranking">
+        🏆 <strong>Top 3 Melhores Tempos:</strong>
+        <ul id="melhoresTempos"></ul>
+      </div>
+      <button id="reiniciar">🔁 Reiniciar Jogo</button>
+    </div>
+  </div>
+
+  <!-- Sons do jogo -->
+  <audio id="som-movimento" src="audios/move.mp3"></audio>
+  <audio id="som-chegada" src="audios/win.mp3"></audio>
+  <audio id="som-erro" src="audios/bump.mp3"></audio>
+
+  <script>
+    const obj = document.getElementById("objetoNaoIdentificado");
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    const tileSize = 25;
+    const chegada = { row: 19, col: 18 };
+    const contadorSpan = document.getElementById("contador");
+    const rankingList = document.getElementById("melhoresTempos");
+    const btnReiniciar = document.getElementById("reiniciar");
+
+    const somMovimento = document.getElementById("som-movimento");
+    const somChegada = document.getElementById("som-chegada");
+    const somErro = document.getElementById("som-erro");
+
+    let x = 0, y = 0;
+    let tempo = 0;
+    let intervalo;
+    let fimDeJogo = false;
+    let historicoTempos = [];
+
+    const maze = [
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+      [1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
+      [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+      [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+      [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+      [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+    ];
+
+    function renderMaze() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let row = 0; row < maze.length; row++) {
+        for (let col = 0; col < maze[row].length; col++) {
+          if (maze[row][col] === 1) {
+            ctx.fillStyle = "#2e7d32";
+            ctx.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
+          }
+        }
+      }
+    }
+
+    function podeMover(novoX, novoY) {
+      const col = Math.floor(novoX / tileSize);
+      const row = Math.floor(novoY / tileSize);
+      if (row < 0 || row >= maze.length || col < 0 || col >= maze[0].length) return false;
+      return maze[row][col] === 0;
+    }
+
+    function chegouNoFinal() {
+      const col = Math.floor(x / tileSize);
+      const row = Math.floor(y / tileSize);
+      return row === chegada.row && col === chegada.col;
+    }
+
+    window.addEventListener("keydown", (event) => {
+      if (fimDeJogo) return;
+
+      let novoX = x, novoY = y;
+      const tecla = event.keyCode;
+
+      if (tecla === 39) novoX += tileSize;
+      else if (tecla === 37) novoX -= tileSize, +20;
+      else if (tecla === 38) novoY -= tileSize, +20;
+      else if (tecla === 40) novoY += tileSize, +20;
+
+      if (podeMover(novoX, novoY)) {
+        x = novoX;
+        y = novoY;
+        obj.style.left = 450 + "px";
+        obj.style.top = 450 + "px";
+        somMovimento.currentTime = 0;
+        somMovimento.play();
+
+        if (chegouNoFinal()) {
+          fimDeJogo = true;
+          clearInterval(intervalo);
+          obj.classList.add("victory");
+          somChegada.play();
+          setTimeout(() => {
+            alert(`🎉 Parabéns! Você chegou no final em ${tempo} segundos!`);
+            obj.classList.remove("victory");
+          }, 100);
+          historicoTempos.push(tempo);
+          historicoTempos.sort((a, b) => a - b);
+          if (historicoTempos.length > 3) historicoTempos.length = 3;
+          atualizarRanking();
+        }
+      } else {
+        obj.classList.add("bump");
+        somErro.currentTime = 0;
+        somErro.play();
+        setTimeout(() => obj.classList.remove("bump"), 300);
+      }
+    });
+
+    function atualizarRanking() {
+      rankingList.innerHTML = "";
+      historicoTempos.forEach((t, i) => {
+        const li = document.createElement("li");
+        li.textContent = `${i + 1}º lugar: ${t} segundos`;
+        rankingList.appendChild(li);
+      });
+    }
+
+    function iniciarTempo() {
+      tempo = 0;
+      contadorSpan.textContent = tempo;
+      intervalo = setInterval(() => {
+        tempo++;
+        contadorSpan.textContent = tempo;
+      }, 8000);
+    }
+
+    function reiniciarJogo() {
+      x = 0;
+      y = 0;
+      obj.style.left = x + "px";
+      obj.style.top = y + "px";
+      fimDeJogo = false;
+      clearInterval(intervalo);
+      contadorSpan.innerText = "0";
+      iniciarTempo();
+    }
+
+    btnReiniciar.addEventListener("click", reiniciarJogo);
+
+    function loop() {
+      renderMaze();
+      requestAnimationFrame(loop);
+    }
+
+    iniciarTempo();
+    loop();
+  </script>
+</body>
+
+</html>

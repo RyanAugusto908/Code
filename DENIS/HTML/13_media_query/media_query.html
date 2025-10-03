@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Query</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style-print.css" media="print">
+        <link rel="stylesheet" href="style-horizontal.css" media="screen and (orientation:landscape)">
+        <link rel="stylesheet" href="style-vertical.css" media="screen and (orientation:portrait)">
+        <link rel="stylesheet" href="stylegeral.css" media="all">
+        <title>Média Query</title>
+    </head>
+</head>
+<body>
+    <header>
+        <h1>Media Query Media Features</h1>
+        <div id="menu" class="lista">
+            <input class="a2" id="titulo-1" type="checkbox">
+            <div class="a1">
+                <label for="titulo-1">
+                    <h2 class="titulo">Menu</h2>
+                </label>
+                <div class="a3">
+                    <a class="conteudo" href="#">Teste1</a>
+                    <a class="conteudo" href="#">Teste2</a>
+                    <a class="conteudo" href="#">Teste3</a>
+                    <a class="conteudo" href="#">Teste4</a>
+                    <a class="conteudo" href="#">Teste5</a>
+                    <a class="conteudo" href="#">Teste6</a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a href="">teste</a>
+            <a href="">teste</a>
+            <a href="">teste</a>
+            <a href="">teste</a>
+            <a href="">teste</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Com o Média Query vamos criar configurações adequadas para cada tela, vamos inserir alguns itens para os testes.</h2>
+            <p>Lá em cima no link css (link rel="stylesheet" href="style.css") vamos inserir o média depois do href
+                (link rel="stylesheet" href="style.css" media="")
+            </p>
+            <h2>Temos alguns tipos de media.</h2>
+            <p>media="all" para todos os tipos.</p>
+            <p>media="screen" para telas.</p>
+            <p>media="print" para impressão</p>
+            <h2>Em screen temos ainda algumas configurações</h2>
+            <p>media="screen and (orientation:landscape)" para páginas na horizontal ou paisagem</p>
+            <p>media="screen and (orientation:portrait)" para páginas na vertical ou retrato</p>
+        </section>
+        <section>
+            <h2>Podemos também fazer outras configurações mais personalizadas de acordo com esta tabela:</h2>
+            <p>Telas pequenas até 600px</p>
+            <p>Celular de 600px até 768px</p>
+            <p>Tablet de 768px até 992px</p>
+            <p>Desktop 992px até 1200px</p>
+            <p>Telas acima de 1200px</p>
+            <p>Utilizamos o média de acordo com a página:</p>
+            <p>@media screen and (min-width:768px)</p>
+        </section>
+        <Article>
+            <h3>Texto</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, commodi? Pariatur ullam amet, recusandae dolorum sit iure ipsum, aliquam minus culpa fugit error voluptas. Inventore, sequi est. Corrupti at magni illum porro, eum incidunt eligendi? Natus praesentium molestias ipsa odit consequatur atque, laboriosam suscipit ipsum soluta sed nesciunt eligendi assumenda temporibus, iste ex tenetur sapiente, id odio veritatis. Sapiente modi cumque dolorem, repellat assumenda porro. Illo optio nihil voluptatibus eaque. Reiciendis id officiis vero sapiente tempore ex culpa voluptatum ratione alias neque accusantium quibusdam, facere cupiditate architecto exercitationem dolorem. Ipsa facilis possimus excepturi aperiam suscipit porro facere sequi temporibus? Incidunt recusandae commodi doloribus non soluta, autem laborum id pariatur adipisci ratione facilis illum sed dolore quasi molestiae blanditiis numquam omnis sequi nostrum officiis eius minima cupiditate ipsa magnam? Voluptatibus assumenda deleniti nobis sunt veniam harum cum eveniet qui voluptate. Sint cum distinctio numquam illum, dicta dolor eius dignissimos ut dolorum.</p>
+        </Article>
+        <div id="imagem">
+
+        </div>
+    </main>
+</body>
+</html>

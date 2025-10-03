@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis em css</title>
+    <style>
+        /*Todas as variáveis tem que começar com (--)*/
+        :root{
+            --cor1: #6C358D;
+            --cor2: #AB81C4;
+            --cor3: #410D60;
+            --cor4: #9BC542;
+            --cor5: #D7F49C;
+            --cor6: #5F860C;
+            --cor7: #8F780D;
+            --cor8: #FFEFA3;
+            --font1: monospace, arial, helvetica;
+            --font2: Georgia, serif;
+            --font3: cursive; 
+        }
+        body{
+            background-color: var(--cor1);
+        }
+        h1{
+            border-radius: 5px;
+            padding-left: 1%;
+            background-color: var(--cor3);
+            color: var(--cor2);
+            font-family: var(--font2);
+            
+        }
+        #ex1{
+            border-radius: 5px;
+            padding-left: 1%;
+            background-color: var(--cor5);
+            color: var(--cor4);
+            font-family: var(--font2);
+        }
+        #ex2{
+            border-radius: 5px;
+            padding-left: 1%;
+            background-color: var(--cor4);
+            color: var(--cor2);
+            font-family: var(--font1);
+        }
+        #ex3{
+            border-radius: 5px;
+            padding-left: 1%;
+            background-color: var(--cor3);
+            color: var(--cor2);
+            font-family: georgia,serif;
+        }
+        #ex4{
+            border-radius: 5px;
+            padding-left: 1%;
+            background-color: var(--cor1);
+            color: var(--cor5);
+            font-family: var(--font3);
+        }
+        p{
+            border-radius: 5px;
+            padding-left: 1%;
+            font-family: var(--font3);
+            color: var(--cor5);
+        }
+        hr{
+            color: var(--cor3)
+        }
+            
+    </style>
+</head>
+<body>
+    <h1>Variáveis em Css</h1>
+    <p>Nesta atividade nós declaramos algumas variáveis em css.</p>
+    <p>Para isso nós utilizamos a pseudo-classe chamada (:root)</p>
+    <p>Estas variáveis são utilizadas para definir alguns itens que são utilizados em nossa página para facilitar a seleção.</p>
+    <p>Também auxilia na hora de manipular varias páginas.</p>
+    
+    <h1>Título</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deleniti fugiat neque sit dolor distinctio atque repellat, tempore expedita dolores ratione facere minus? Quod cum earum odit illo voluptatibus quidem beatae placeat nulla incidunt iste fuga iusto corporis similique facilis eveniet, enim molestiae quisquam animi neque quas maiores aspernatur? Magni neque consequatur incidunt voluptates inventore, placeat dolor voluptate laudantium unde debitis sunt aliquid aperiam ipsum, autem, maiores beatae. Omnis blanditiis recusandae ad debitis mollitia ullam praesentium magnam, totam tempore nulla numquam dicta! Quidem id necessitatibus repellat et aspernatur? Laboriosam eveniet explicabo nihil distinctio, pariatur iusto, error quod sit voluptatibus placeat nemo ad tenetur. Enim minus sunt atque consectetur maxime odit porro reprehenderit quas voluptates explicabo quam pariatur, libero voluptas, eos veniam quae dolorem amet a? Reprehenderit quam voluptate quibusdam accusantium beatae rerum atque similique enim ratione, modi possimus sint aliquid nam perferendis cum architecto corrupti ut quae exercitationem iste. Unde!</p>
+
+    <p style="font-size: 150%; background-color: var(--cor7); color: var(--cor8);">Título 2</p>
+
+    <p style="color: var(--cor8); background-color: var(--cor7);">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aut? Dolore nulla nam corporis itaque nemo nihil tempore mollitia quos laudantium, dolorum ad, eveniet fugiat repudiandae autem, officiis quae voluptate?</p>
+
+    <hr style="background-color: #410D60;">
+
+    <h4 id="ex1">Variáveis de cores1</h2>
+    <h4 id="ex2">Variáveis de cores2</h2>    
+    <h4 id="ex3">Variáveis de cores2</h2>
+    <h4 id="ex4">Variáveis de cores2</h2>
+
+    <link rel="stylesheet" href="Página2">
+
+</body>
+</html>

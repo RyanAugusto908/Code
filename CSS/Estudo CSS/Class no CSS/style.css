@@ -1,0 +1,33 @@
+#ex1{
+    color: blue;
+}
+#ex2{
+    color: rgb(0,255,64);
+}
+#ex3{
+    color: rgb(255,60,0)
+}
+#ex4{
+    color: rgb(255,60,0)
+}
+#ex5{
+    color: rgb(192,6,99)
+}
+#ex6{
+    color: rgb(238,255,0)
+}
+#ex7{
+    color: rgb(162,0,255)
+}
+.ex1{
+    color: blue
+}
+.ex2{
+    color: rgb(255,226,43)
+}
+.ex3{
+    background-color: rgb(125,226,43);
+}
+.ex4{
+    background-color: rgb(46,43,226);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu com Css</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        h1{
+            text-align: center;
+            margin: 60px 0 40px 0;
+            font-size: 1.5em;
+            color: gray;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            border: 2px solid powderblue;
+            padding: 30px;
+        }
+        .lista{
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 2px 6px rgba(50, 50, 90, .1);
+            text-align: center;
+        }
+        .titulo{
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            font-size: 3em;
+            font-family: monospace;
+            color: #8F6ED5;
+        }
+        .titulo::after{
+            content: '\1F446';
+            float: right;
+            transition: 1s ease-in-out;
+        }
+        .conteudo{
+            padding: 10px;
+            color: #6B7C93;
+            font-family: helvetica;
+            font-size: .875rem;
+            line-height: 2em;
+            display: none;
+            background-color: aqua;
+        }
+        .a2{
+            display: none;
+        }
+        .a2:checked + .a1 .conteudo{
+            display: ruby;
+        }
+        .a2:checked + .a1 .titulo::after{
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Ativando uma caixa</h1>
+    <div class="lista">
+        <input class="a2" id="titulo-1" type="checkbox">
+        <div class="a1">
+            <label for="titulo-1">
+                <h2 class="titulo">VAMOS ATIVAR ESTA CAIXA</h2>
+            </label>
+            <a class="conteudo" href="#">Teste1</a>
+            <a class="conteudo" href="#">Teste2</a>
+            <a class="conteudo" href="#">Teste3</a>
+            <a class="conteudo" href="#">Teste4</a>
+            <a class="conteudo" href="#">Teste5</a>
+            <a class="conteudo" href="#">Teste6</a>
+        </div>
+    </div>
+</body>
+</html>

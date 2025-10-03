@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de caixas</title>
+    <style>
+        #ex1 {
+            border: 2px solid black;
+        }
+        
+        #ex2 {
+            border: 2px solid black;
+            padding: 20px;
+        }
+        
+        #ex3 {
+            border: 2px solid black;
+            margin: 100px;
+        }
+        
+        div {
+            border: 2px solid black;
+            text-align: center;
+        }
+        
+        span {
+            border: 2px solid black;
+            color: brown;
+        }
+        
+        a {
+            border: 2px solid black;
+        }
+        
+        aside {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modelos de caixas (box model).</h1>
+    <h2>Vamos inserir algumas caixas de exemplo.</h2>
+    <p>As caixas são inseridas sempre que adicionamos algum elemento Ex:</p>
+    <p>Pode ser um (p), (h1), (h2) e etc.</p>
+    <p>vamos mostrar um ex:</p>
+    
+    <h1 id="ex1">Caixa1</h1>
+    <p>Nesta caixa está colada no texto</p>
+    
+    <h1 id="ex2">Caixa2</h1>
+    <p>Já neste exemplo, a caixa está com um pequeno espaço ou preenchimento (padding) interno.</p>
+    
+    <h1 id="ex3">Caixa3</h1>
+    <p>Neste exemplo nós vamos criar espaço externos com o margin</p>
+    
+    <h2>Tipos de caixas</h2>
+    <h3>Temos as caixas do tipo:</h3>
+    
+    <h4>box-level → Toda vez que se insere este tipo, ela vai para a próxima linha e ocupa o tamanho inteiro da tela.</h4>
+    <h4>inline-level → Quando é inserido este tipo de caixa ela não quebra a linha e só ocupa o espaço que foi destinado a caixa e o conteúdo continua logo após a caixa.</h4>
+    
+    <div>
+        <h4>Box level ex:</h4>
+        <p>div</p>
+        <p>h1 a h6</p>
+        <p>p</p>
+        <p>main</p>
+        <p>header</p>
+        <p>nav</p>
+        <p>article</p>
+        <p>aside</p>
+        <p>footer</p>
+        <p>form</p>
+        <p>video</p>
+    </div>
+    
+    <div>
+        <h4>inline-level ex</h4>
+        <p>span</p>
+        <p>a</p>
+        <p>code</p>
+        <p>small</p>
+        <p>strong</p>
+        <p>em</p>
+        <p>sup-sub</p>
+        <p>label</p>
+    </div>
+    
+    <div>
+        <p>button</p>
+        <p>input</p>
+        <p>select</p>
+    </div>
+    
+    <aside>
+        <a href="#">Este também é um modelo inline-level.</a>
+        <code>Este também continua sem quebrar a linha.</code>
+        <label for="">Esta caixa também está na mesma linha</label>
+    </aside>
+</body>
+</html>

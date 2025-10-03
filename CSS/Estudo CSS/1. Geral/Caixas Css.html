@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    #cx1{
+        margin-top: 100px;
+        background-color: aquamarine;
+        border-color: blue;
+        border-width: 5px;
+        border-style: dashed;
+
+        outline-width: 10px;
+        outline-style: double;
+        outline-color: brown;
+
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    #cx2{
+        margin-left: 100px;
+        background-color: burlywood;
+        border-color: blueviolet;
+        border-width: 5px;
+        border-style: dotted;
+        
+        outline-width: 10px;
+        outline-style: dashed;
+        outline-color: brown;
+
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    #cx3{
+        margin-right: 100px;
+        background-color: cornflowerblue;
+        border-color: chartreuse;
+        border-width: 10px;
+        border-style: double;
+
+        outline-width: 10px;
+        outline-style: groove;
+        outline-color: brown;
+
+        padding: 10px 20px 10px 20px;
+    }
+    #cx4{
+        margin: auto;
+        background-color: darkorange;
+        border: 10px groove orchid;
+        outline: 10px ridge brown;
+        padding: 10;
+    }
+    #cx5{
+        box-shadow: 5px 5px 5px 5px;
+    }
+    #cx6{
+        box-shadow: 5px 5px 5px;
+    }
+    #cx7{
+        box-shadow: 5px 10px 5px 5px rgb(218, 168, 132);
+    }
+    #cx8{
+        box-shadow: 5px 5px 50px 10px;
+    }
+    #cx9{
+        box-shadow: inset 5px 5px 50px 10px;
+    }
+    #cx10{
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px 5px;
+    }
+    #cx11{
+        border-radius: 10px 50px;
+        box-shadow: 2px 2px 5px 5px black;
+    }
+    #cx12{
+        border-radius: 0% 20% 0% 0%;
+        box-shadow: 2px 2px 5px 5px black;
+    }
+    #cx13{
+        border-radius: 50%;
+        box-shadow: 2px 2px 5px 5px black;
+    }
+    h2{
+        margin-top: 90px;
+        color: hsl(0, 100%, 52%);
+        text-align: center;
+    }
+    h1{
+        color: hsl(241, 100%, 52%);
+        text-align: center;
+    }
+    main{
+        width: 95%;
+        height: 1700px;
+        border: 2px solid black;
+        padding: 5px;
+        box-shadow: 2px 2px 5px 5px black;
+    }
+    section> div{
+        display: inline-block;
+    }
+    section{
+        width: 95%;
+        height: 1000px;
+        border: 2px solid black;
+        text-align: center;
+        margin-top: 10px;
+        box-shadow: 2px 2px 5px 5px black;
+    }
+</style>
+<body>
+    <main>Bordas das caixas</main>
+    <div id="cx1">
+        <h1>Caixa 1</h1>
+    </div><br>
+
+    <div id="cx2">
+        <h1>Caixa 2</h1>
+    </div><br>
+
+    <div id="cx3">
+        <h1>Caixa 3</h1>
+    </div><br>
+
+    <div id="cx4">
+        <h1>Caixa 4</h1>
+    </div><br>
+
+    <section>
+        <div id="cx5">
+            <h2>Caixa 5</h2>
+            <h3>Sombra diagonal esquerda todos os lados.</h3>
+        </div><br>
+
+        <div id="cx6">
+            <h2>Caixa 6</h2>
+            <h3>Sombra diagonal esquerda direito e embaixo.</h3>
+        </div><br>
+
+        <div id="cx7">
+            <h2>Caixa 7</h2>
+            <h3>Sombra diagonal esquerda em baixo com cor.</h3>
+        </div>
+        <div id="cx8">
+            <h2>Caixa 8</h2>
+            <h3>Sombra frontal todos os lados com transparência.</h3>
+        </div><br>
+
+        <div id="cx9">
+            <h2>Caixa 9</h2>
+            <h3>Sombra frontal interna para todos os lados com transparência.</h3>
+        </div><br>
+    </section>
+
+        <div id="cx10">
+            <h2>Caixa 10</h2>
+            <h3>Caixa com um pequeno arredondamento nos cantos</h3>
+        </div><br>
+
+        <div id="cx12">
+            <h2>Caixa 11</h2>
+            <h3>Caixa com um pequeno arredondadamentos diferentes em cada canto</h3>
+        </div><br>
+
+        <div id="cx13">
+            <h2>Caixa 12</h2>
+            <h3>Caixa em que um só canto é arredondado</h3>
+        </div><br>
+
+        <div id="cx13">
+            <h2>Caixa 13</h2>
+            <h3>Caixa quadrada que virou um circulo</h3>
+        </div><br>
+
+</body>
+</html>

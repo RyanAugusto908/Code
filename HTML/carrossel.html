@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de Carrossel</title>
+
+  <!-- Importa o CSS do Bootstrap 3.4.1 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- Importa o jQuery, necessário para o Bootstrap funcionar -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Importa o JavaScript do Bootstrap para ativar o carrossel -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    /* Estilo para centralizar as imagens do carrossel */
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+    }
+
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Carrossel</h1>
+
+  <div class="container">
+    <br>
+
+    <div id="meuCarrossel" class="carousel slide" data-ride="carousel">
+      <!-- Indicadores -->
+      <ol class="carousel-indicators">
+        <li data-target="#meuCarrossel" data-slide-to="0" class="active"></li>
+        <li data-target="#meuCarrossel" data-slide-to="1"></li>
+        <li data-target="#meuCarrossel" data-slide-to="2"></li>
+        <li data-target="#meuCarrossel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="../HTML/imagens/carro1.jpg" alt="Brasília" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Brasília</h3>
+            <p>Carro 1</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../HTML/imagens/carro1.jpg" alt="Corcel" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Corcel</h3>
+            <p>Carro 2</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../HTML/imagens/carro1.jpg" alt="Chevette" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Chevette</h3>
+            <p>Carro 3</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../HTML/imagens/carro1.jpg" alt="Fusca" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Fusca</h3>
+            <p>Carro 4</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <a class="left carousel-control" href="#meuCarrossel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+
+      <a class="right carousel-control" href="#meuCarrossel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

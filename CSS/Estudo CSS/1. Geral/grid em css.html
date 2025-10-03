@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 2fr;
+            background-color: aqua;
+            gap: 5px;
+            height: 100vh;
+        }
+        header{
+            grid-column: 1/8;
+            grid-row: 1;
+            background-color: black;
+        }
+        section{
+            grid-column: 1;
+            grid-row: 2/6;
+            background-color: blueviolet;
+        }
+        nav{
+            grid-column: 2/7;
+            grid-row: 2;
+            background-color: cadetblue;
+        }
+        #a2{
+            grid-column: 7;
+            grid-row: 2;
+            background-color: cornflowerblue;
+        }
+        aside{
+            grid-column: 2/4;
+            grid-row: 3;
+            background-color: darkblue;
+        }
+        article{
+            grid-column: 3/6;
+            grid-row: 3;
+            background-color: crimson;
+        }
+        #a3{
+            grid-column: 6/8;
+            grid-row: 3;
+            background-color: darkcyan;
+        }
+        #a4{
+            grid-column: 2/5;
+            grid-row: 4;
+            background-color: darkgoldenrod;
+        }
+        #a5{
+            grid-column: 5/7;
+            grid-row: 4;
+            background-color: darkgreen;
+        }
+        #a6{
+            grid-column: 2/4;
+            grid-row: 5;
+            background-color: darkmagenta;
+        }
+        #a7{
+            grid-column: 4/6;
+            grid-row: 5;
+            background-color: darkorange;
+        }
+        #a8{
+            grid-column: 6/7;
+            grid-row: 5;
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <header></header>
+    <section></section>
+    <article></article>
+    <aside></aside>
+    <div id="a2"></div>
+    <div id="a3"></div>
+    <div id="a4"></div>
+    <div id="a5"></div>
+    <div id="a6"></div>
+    <div id="a7"></div>
+    <div id="a8"></div>
+    
+    
+</body>
+</html>

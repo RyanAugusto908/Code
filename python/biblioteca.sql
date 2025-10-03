@@ -1,0 +1,17 @@
+DROP DATABASE biblioteca;
+CREATE DATABASE biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS livros (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(200) UNIQUE NOT NULL,
+    id_autor INT DEFAULT NULL,
+    ano INT DEFAULT NULL,
+    FOREIGN KEY (id_autor) REFERENCES autores(id)
+);
+
+CREATE TABLE IF NOT EXISTS autores (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(200) UNIQUE NOT NULL
+);
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #0f172a;
+        }
+
+        p {
+            color: #334155;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        #total,
+        #resultado,
+        #resultado2 {
+            font-weight: bold;
+            color: #0f172a;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Funções em JavaScript</h1>
+        <p>Funções são blocos de construção fundamentais em JavaScript.<br>
+            Uma função é um procedimento — um conjunto de instruções que executa uma tarefa ou calcula um valor.</p>
+    </div>
+
+    <div class="container">
+        <h3>Função Soma</h3>
+        <input type="number" id="num1" placeholder="Digite o primeiro número">
+        <input type="number" id="num2" placeholder="Digite o segundo número">
+        <button onclick="soma()">Somar</button>
+        <p id="total"></p>
+    </div>
+
+    <div class="container">
+        <h2>Verificar se o número é par ou ímpar</h2>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="par()">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <div class="container">
+        <h2>Converter Celsius para Fahrenheit</h2>
+        <input type="number" id="celsius" placeholder="Temperatura em Celsius">
+        <button onclick="converterCelsiusParaFahrenheit()">Converter</button>
+        <p id="resultado2"></p>
+    </div>
+
+    <h2>numeros em ordem crescente</h2>
+    <label for="numeros">Digite os números (separados por vírgula):</label>
+    <input type="text" id="numeros" name="numeros" placeholder="Ex: 10, 20, 30">
+    <button onclick="pegarNumeros()">Enviar</button>
+    <p id="resultadoOrdem"></p>
+
+    <h2>Verificar horas na china</h2>
+    <p>Que horas são? (somente horas)</p>
+    <input type="number" id="horas">
+    <button onclick="converterHoras()" placeholder="Ex: 12">Converter</button>
+    <p id="fuso"></p>
+
+
+
+
+
+    <script>
+        function soma() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let total = num1 + num2;
+            document.getElementById("total").innerText = "Resultado da soma: " + total;
+        }
+
+        function par() {
+            let numero = parseInt(document.getElementById("numero").value);
+            if (isNaN(numero)) {
+                document.getElementById("resultado").innerText = "Digite um número válido.";
+                return;
+            }
+            let resultado = (numero % 2 === 0) ? "Número PAR" : "Número ÍMPAR";
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        function converterCelsiusParaFahrenheit() {
+            let celsius = parseFloat(document.getElementById("celsius").value);
+
+            let fahrenheit = (celsius * 9 / 5) + 32;
+            document.getElementById("resultado2").innerText =
+                celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
+
+        }
+
+        function pegarNumeros() {
+            const input = document.getElementById("numeros").value;
+
+            const numeros = input
+                .split(/[\s,]+/)
+                .map(Number)
+                .filter(n => !isNaN(n));
+
+            const ordenados = numeros.sort((a, b) => a - b);
+            document.getElementById("resultadoOrdem").innerText =
+                "Ordem crescente: " + ordenados.join(", ");
+        }
+        function converterHoras() {
+            var valor1 = parseInt(document.getElementById("horas").value);
+
+            if (isNaN(valor1) || valor1 < 0 || valor1 > 23) {
+                document.getElementById("fuso").innerText = "Digite uma hora válida (0 a 23)";
+                return;
+            }
+
+            var fuso = (valor1 + 11) % 24; // Garante que o valor fique entre 0 e 23
+
+            document.getElementById("fuso").innerText = "Na China são: " + fuso + " horas";
+        }
+
+
+    </script>
+</body>
+
+</html>

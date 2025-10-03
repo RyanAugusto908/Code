@@ -1,0 +1,5 @@
+python --version
+pip --version
+python -m ensurepip --upgrade
+pip install pytest
+pytest --version

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teorema de Pitágoras</title>
+</head>
+<body>
+    <h2>Cálculo do Teorema de Pitágoras</h2>
+    <p>a² + b² = c²</p>
+
+    <input type="number" id="a" placeholder="Digite o valor de a"> +
+    <input type="number" id="b" placeholder="Digite o valor de b">
+    <button onclick="calculo()">Calcular</button>
+
+    <p id="total"></p>
+
+    <script>
+        function calculo() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+
+            var c = Math.sqrt(a ** 2 + b ** 2);
+            document.getElementById("total").innerHTML = "O valor de c é: " + c.toFixed(2);
+        }
+    </script>
+</body>
+</html>

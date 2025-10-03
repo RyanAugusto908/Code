@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        header {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 50px;
+            margin: 0;
+        }
+        nav {
+            background-color: #f0f0f0;
+            padding: 15px 0;
+            position: relative;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .left-group, .right-group {
+            display: flex;
+            gap: 10px;
+        }
+        .center-item {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: inline-block;
+            background-color: blueviolet;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #8a2be2;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            color: #f0f0f0;
+        }
+        section {
+            background-color: #8a2be2;
+            width: 30%;
+            height: 650px;
+        }
+        #caixa-meio {
+            background-color: white;
+            color: black;
+        }
+        aside {
+            width: 30%;
+            height: 200px;
+            background-color: aqua;
+            margin: 1rem;
+            text-align: center;
+            padding: 0px 185px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cabeçalho</h1>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <div class="left-group">
+                <a href="/Página inicial-1">Página inicial-1</a>
+                <a href="/Página inicial-2">Página inicial-2</a>
+            </div>
+            <div class="center-item">
+                <a href="/Página inicial-3">Página inicial-3</a>
+            </div>
+            <div class="right-group">
+                <a href="/Página inicial-4">Página inicial-4</a>
+                <a href="/Página inicial-5">Página inicial-5</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>Caixa 1</section>
+        <section id="caixa-meio">
+            <aside>bloco 1</aside>
+            <aside>bloco 2</aside>
+            <aside>bloco 3</aside>
+        </section>
+        <section>Caixa 2</section>
+    </main>
+</body>
+</html>

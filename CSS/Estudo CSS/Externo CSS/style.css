@@ -1,0 +1,16 @@
+body{
+    background-color: rgba(62,151,62,0.301);
+    margin-left: 200px;
+    margin-right: 200px;
+}
+h1{
+    color: blue;
+    background-color: aquamarine;
+}
+h2{
+    color: green;
+}
+p{
+    color: darkmagenta;
+    text-align: justify;
+}
