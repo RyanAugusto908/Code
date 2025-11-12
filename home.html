@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF_8">
+    <meta name="viewport" content="width=device_width, initial-scale=1.0">
+    <title>TecnoCursos</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+</head>
+
+<body>
+    <header class="main_header">
+        <div class="header_container">
+            <button class="menu_botao" aria_label="Menu" onclick="togglemenuSuspenso()">
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <h1 class="logo" onclick="navigateToPage('home.html')" style="cursor: pointer;">TecnoCursos</h1>
+
+            <div class="header_actions">
+                <button class="botao_pesquisa" aria-label="Buscar">
+                    <img src="../IMG/icon_pesq.png" alt="Buscar" class="icone_pesq">
+                </button>
+
+                <button class="botao_perfil" aria-label="Perfil" onclick="navigateToPage('perfil.html')">
+                    <div class="icone_perfil">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="menu_suspenso" id="menuSuspenso">
+            <div class="menu_title">MENU</div>
+
+            <ul class="menu_lista">
+                <li class="menu_item">
+                    <button class="menu_link" onclick="navigateTo('inicio')">
+                        Início
+                        <span class="menu_seta">></span>
+                    </button>
+                </li>
+
+                <li class="menu_item">
+                    <button class="menu_link" onclick="toggleSubmenu('cursos')">
+                        Cursos
+                        <span class="menu_seta" id="cursosSeta">></span>
+                    </button>
+                    <div class="submenu ativo" id="cursosSubmenu">
+                        <div class="submenu_item ativo" onclick="navigateToPage('faculdade.html')">Faculdade</div>
+                        <div class="submenu_item" onclick="navigateToPage('tecnico.html')">Técnico</div>
+                        <div class="submenu_item" onclick="navigateToPage('tecnologo.html')">Tecnólogo</div>
+                    </div>
+                </li>
+                <li class="menu_item">
+                    <button class="menu_link" onclick="navigateTo('venda')">
+                        Produtos
+                        <span class="menu_seta">></span>
+                    </button>
+                </li>
+                <div class="menu_separador"></div>
+
+                <ul class="menu_lista">
+                    <li class="menu_item">
+                        <button class="menu_link" onclick="navigateTo('sobre')">
+                            Sobre nós
+                            <span class="menu_seta">></span>
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="menu_separador"></div>
+
+                <ul class="menu_lista">
+                    <li class="menu_item">
+                        <button class="menu_link" onclick="navigateTo('suporte')">
+                            Suporte
+                            <span class="menu_seta">></span>
+                        </button>
+                    </li>
+                </ul>
+        </div>
+    </header>
+
+    <!--Barra de Navegação (apenas desktop acima de 768px) -->
+    <nav class="navegacao">
+        <div class="nav_container">
+            <button class="nav_btn ativo" onclick="navigateToPage('home.html')">Início</button>
+            <button class="nav_btn" onclick="navigateToPage('cursos.html')">Cursos</button>
+            <button class="nav_btn" onclick="navigateToPage('produtos.html')">Produtos</button>
+            <button class="nav_btn" onclick="navigateToPage('sobre.html')">Sobre nós</button>
+            <button class="nav_btn" onclick="navigateToPage('suporte.html')">Suporte</button>
+        </div>
+    </nav>
+
+    <!-- Ryan Slide mercado de trabalho -->
+    <main>
+        <a href="ti.html" class="bloco"></a>
+            <section class="mercado-trabalho">
+                <h2>Mercado de trabalho.</h2>
+
+                <div class="grade-3x3">
+                    <!-- Coluna 1: Imagens -->
+                    <a href="seguranca.html" class="bloco">
+                        <div class="bloco-imagem">
+                            <img src="../IMG/ti.jpg" alt="Tecnologia da Informação">
+                            <p class="titulo-area">Tecnologia da Informação</p>
+                        </div>
+                        <div class="bloco-imagem">
+                            <img src="../IMG/seguranca.png" alt="Segurança do Trabalho">
+                            <p class="titulo-area">Segurança do Trabalho</p>
+                        </div>
+                        <div class="bloco-imagem">
+                            <img src="../IMG/administracao.webp" alt="Administração">
+                            <p class="titulo-area">Administração</p>
+                        </div>
+
+                        <!-- Coluna 2: Texto -->
+                        <div class="bloco-texto">
+                            <p>A Tecnologia da Informação (TI) está em constante crescimento, impactando todas as áreas do
+                                conhecimento e do cotidiano.</p>
+                        </div>
+                        <div class="bloco-texto">
+                            <p>O setor de segurança do trabalho tem ganhado relevância no Brasil, com a crescente demanda
+                                por
+                                profissionais qualificados para garantir condições seguras e saudáveis nas empresas.</p>
+                        </div>
+                        <div class="bloco-texto">
+                            <p>Portanto, qualquer negócio pode ter um ou mais administradores, o que contribui para a
+                                constante
+                                oferta de empregos na área.</p>
+                        </div>
+
+                        <!-- Coluna 3: Gráficos -->
+                        <div class="bloco-grafico">
+                            <img src="../IMG/grafico-ti.jpg" alt="Gráfico Segmentos TI">
+                        </div>
+                        <div class="bloco-grafico">
+                            <img src="../IMG/grafico-seguranca.jpg" alt="Gráfico Segurança">
+                        </div>
+                        <div class="bloco-grafico">
+                            <img src="../IMG/grafico-adm.webp" alt="Gráfico Administração">
+                        </div>
+                </div>
+            </section>
+
+
+
+    </main>
+
+    <script>
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+
+        function togglemenuSuspenso() {
+            const menuSuspenso = document.getElementById('menuSuspenso');
+            const menuBtn = document.querySelector('.menu_botao');
+
+            menuSuspenso.classList.toggle('ativo');
+            menuBtn.classList.toggle('ativo');
+        }
+
+        function toggleSubmenu(menuId) {
+            const submenu = document.getElementById(menuId + 'Submenu');
+            const seta = document.getElementById(menuId + 'seta');
+
+            submenu.classList.toggle('ativo');
+            seta.classList.toggle('rotated');
+
+            if (submenu.classList.contains('ativo')) {
+                seta.textContent = '>';
+            } else {
+                seta.textContent = '>';
+            }
+        }
+
+        function navigateTo(page) {
+            const pageMap = {
+                'inicio': 'home.html',
+                'cursos': 'cursos.html',
+                'venda': 'produtos.html',
+                'sobre': 'sobre.html',
+                'suporte': 'suporte.html'
+            };
+
+            if (pageMap[page]) {
+                navigateToPage(pageMap[page]);
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const menuSuspenso = document.getElementById('menuSuspenso');
+            const menuBtn = document.querySelector('.menu_botao');
+
+            if (!menuBtn.contains(event.target) && !menuSuspenso.contains(event.target)) {
+                menuSuspenso.classList.remove('ativo');
+                menuBtn.classList.remove('ativo');
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const menuSuspenso = document.getElementById('menuSuspenso');
+                const menuBtn = document.querySelector('.menu_botao');
+
+                menuSuspenso.classList.remove('ativo');
+                menuBtn.classList.remove('ativo');
+            }
+        });
+    </script>
+</body>
+
+</html>

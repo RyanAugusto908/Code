@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #64008b, #1f0122);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            background-color: #1c1c1c;
+            padding: 30px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: rgb(197, 20, 197);
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[name="expressao"] {
+            background-color: #ca02d1;
+            color: #0f0;
+            font-size: 50px;
+            padding: 40px;
+            border: none;
+            border-radius: 50%;
+            text-align: right;
+            pointer-events: none;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .options span {
+            background-color: #e0e0e0;
+            padding: 15px;
+            font-size: 50px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        .options span:hover {
+            background-color: #0fdb07;
+            transform: scale(3);
+        }
+
+        .options span.limpa {
+            grid-column: span 4;
+            background-color: #2cb40a;
+            color: white;
+        }
+
+        .options span.limpa:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Calculadora</h1>
+        <form name="calculadora">
+            <input type="text" name="expressao" readonly />
+            <div class="options">
+                <span>/</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>*</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>-</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>+</span>
+                <span>0</span>
+                <span>,</span>
+                <span>=</span>
+                <span class="limpa">LIMPA</span>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        document.querySelectorAll('form span').forEach(item => {
+            item.addEventListener('click', () => {
+                addVal(item.innerHTML);
+            });
+        });
+
+        function addVal(valor) {
+            if (valor === 'LIMPA') {
+                document.calculadora.expressao.value = '';
+            } else if (valor === "=") {
+                try {
+                    let resultado = eval(document.calculadora.expressao.value.replaceAll(',', '.'));
+                    document.calculadora.expressao.value = resultado.toString().replaceAll('.', ',');
+                } catch (e) {
+                    document.calculadora.expressao.value = 'Erro';
+                }
+            } else {
+                document.calculadora.expressao.value += valor;
+            }
+        }
+    </script>
+</body>
+
+</html>

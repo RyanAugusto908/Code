@@ -1,17 +1,22 @@
-DROP DATABASE biblioteca;
-CREATE DATABASE biblioteca;
-USE biblioteca;
+DROP DATABASE arte_foco;
 
-CREATE TABLE IF NOT EXISTS livros (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(200) UNIQUE NOT NULL,
-    id_autor INT DEFAULT NULL,
-    ano INT DEFAULT NULL,
-    FOREIGN KEY (id_autor) REFERENCES autores(id)
+CREATE DATABASE arte_foco;
+
+use arte_foco;
+
+CREATE Table usuarios(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    senha VARCHAR(100)
 );
 
-CREATE TABLE IF NOT EXISTS autores (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(200) UNIQUE NOT NULL
+INSERT INTO usuarios(nome, senha) VALUES(
+    'Ryan','Adivinha2005#'
 );
+
+ALTER Table usuarios add COLUMN codigo_secreto;
+
+
+
+
 

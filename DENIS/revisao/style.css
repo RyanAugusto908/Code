@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+}
+header{
+    background-color: blue;
+    height: 100px;
+    margin: 10px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+main{
+    background-color: blueviolet;
+    height: 720px;
+    display: flex;
+    margin: 10px;
+}
+section{
+    background-color: brown;
+    height: 700px;
+    width: 500px;
+    margin: 10px;
+}
+aside{
+    background-color: cadetblue;
+    height: 700px;
+    width: 500px;
+    margin: 10px;
+}
+footer{
+    background-color: crimson;
+    height: 80px;
+    margin: 10px;
+}

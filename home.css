@@ -1,0 +1,516 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Cabeçalho Principal */
+.main_header {
+  background-color: #082a44;
+  padding: 16px;
+  position: relative;
+}
+
+.header_container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Botão do Menu Hambúrguer */
+.menu_botao {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  position: relative;
+  width: 2.3rem;
+  height: 1.8rem;
+}
+
+.menu_botao:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.menu span {
+  width: 20px;
+  height: 2px;
+  background-color: #feba53;
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+
+/* Menu Dropdown */
+.menu_suspenso {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #082a44;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  width: 280px;
+  overflow: hidden;
+}
+
+.menu_suspenso.ativo {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Título do Menu */
+.menu_title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 2px;
+  border-bottom: 2px solid white;
+  margin-bottom: 0;
+}
+
+/* Lista do Menu */
+.menu_lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Item do Menu */
+.menu_item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu_item:last-child {
+  border-bottom: none;
+}
+
+/* Link do Menu */
+.menu_link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.menu_link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #feba53;
+}
+
+/* Ícones das setas */
+.menu_seta {
+  color: white;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.menu_link:hover .menu_seta {
+  color: #feba53;
+}
+
+/* Submenu */
+.submenu {
+  background-color: #082a44;
+  border-left: 3px solid #feba53;
+  margin-left: 20px;
+  display: none;
+}
+
+.submenu.ativo {
+  display: block;
+}
+
+.submenu_item {
+  padding: 12px 20px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.submenu_item:last-child {
+  border-bottom: none;
+}
+
+.submenu_item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #feba53;
+}
+
+.submenu_item.ativo {
+  color: #feba53;
+  font-weight: 500;
+}
+
+/* Separadores */
+.menu_separador {
+  height: 1px;
+  background-color: white;
+  margin: 0 20px;
+}
+
+/* Logo/Título */
+.logo {
+  color: #feba53;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  grid-column: 2;
+}
+
+/* Botão de Busca */
+.botao_pesquisa {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.botao_pesquisa:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icone_pesquisa {
+  color: #feba53;
+  font-size: 18px;
+}
+
+/* Botão de Perfil */
+.botao_perfil {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  margin-left: 8px;
+}
+
+.botao_perfil:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icone_perfil {
+  color: #feba53;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone_perfil svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Logo responsiva */
+.logo:hover {
+  color: #ea580c;
+  transition: color 0.2s;
+}
+
+.navegacao {
+  background-color: #156088;
+  padding: 8px 16px;
+}
+
+.nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.nav_btn {
+  background-color: #feba53;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.nav_btn:hover {
+  background-color: #ea580c;
+}
+
+.nav_btn.ativo {
+  background-color: white;
+  color: #374151;
+}
+
+.nav_btn.ativo:hover {
+  background-color: #f3f4f6;
+}
+
+/* Container for search and profile buttons */
+.header_actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .navegacao {
+    display: none;
+  }
+
+  .header_container {
+    padding: 0 8px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .menu_suspenso {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+
+  .botao_perfil {
+    margin-left: 4px;
+    padding: 6px;
+  }
+
+  .icone_perfil svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Animações */
+.menu_botao.ativo .menu span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu_botao.ativo .menu span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu_botao.ativo .menu span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.menu_seta.rotated {
+  transform: rotate(90deg);
+}
+
+/* Estados de foco */
+.menu_botao:focus,
+.botao_pesquisa:focus,
+.nav_btn:focus,
+.menu_link:focus,
+.submenu_item:focus,
+.botao_perfil:focus {
+  outline: 2px solid #feba53;
+  outline-offset: 2px;
+}
+
+.icone_pesq {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Ryan slide mercado de trabalho */
+
+.mercado-trabalho {
+  background-color: #fffbe6;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.mercado-trabalho h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.area {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.area-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.area img:first-child {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+.descricao {
+  padding: 20px;
+  flex: 1;
+}
+
+.descricao h3 {
+  margin-top: 0;
+  color: #d47d00;
+}
+
+.descricao p {
+  margin: 10px 0 20px;
+  color: #444;
+}
+
+.descricao img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+#grafico-ti {
+  width: 200px;
+  height: auto;
+}
+
+#grafico-seguranca {
+  width: 200px;
+  height: auto;
+}
+
+#grafico-adm {
+  width: 200px;
+  height: auto;
+}
+
+.area-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.area {
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+}
+
+.grade-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.bloco-imagem,
+.bloco-texto,
+.bloco-grafico {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bloco-imagem img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.titulo-area {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #d47d00;
+  text-align: center;
+}
+
+.bloco-texto {
+  background-color: #fff7d1;
+  font-size: 15px;
+  position: relative;
+}
+
+.bloco-texto::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: orange;
+  border-radius: 50%;
+  top: 8px;
+  left: 8px;
+}
+
+.bloco-texto p {
+  margin: 0;
+  color: #333;
+  text-align: justify;
+}
+
+.bloco-grafico img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.mercado-trabalho h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+
+/* --------- Responsividade --------- */
+@media (max-width: 768px) {
+  .grade-3x3 {
+    grid-template-columns: 1fr;
+  }
+}

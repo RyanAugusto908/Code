@@ -1,0 +1,35 @@
+a{
+    margin-top: 10px;
+    font-size: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: aqua;
+}
+body{
+    background-color: #93D5E6;
+}
+header{
+    margin: auto;
+}
+main{
+    margin: auto;
+}
+p{
+    font-size: 22px;
+    text-align: justify;
+}
+h1{
+    font-size: 50px;
+    color: #a55f3a;
+}
+#imagem{
+    background-image: url(aab-67.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: #3B97AD;
+    height: 100vh;
+}
+nav{
+    display: flex;
+}
